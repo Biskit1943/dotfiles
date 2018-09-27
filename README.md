@@ -18,3 +18,11 @@ Install additional Packages:
 # Result:
 
 ![dark-wood Screenshot](https://github.com/Biskit1943/dotfiles/blob/master/Pictures/dark_wood_theme_thumb.png)
+
+# OOMOX
+
+If you want to apply the dark_wood theme to all GTK applications use the [base16-builder](https://github.com/base16-builder/base16-builder)
+like that
+```bash
+base16-builder -s solarized -b dark -t oomox
+```

@@ -1,0 +1,12 @@
+[Unit]
+Description=Lock screen on suspend
+Before=sleep.target
+
+[Service]
+User=%I
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/home/%I/.config/scripts/i3lock.sh
+
+[Install]
+WantedBy=suspend.target

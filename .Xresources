@@ -1,0 +1,133 @@
+#include "/home/max/.config/themes/default/Xbase"
+Xcursor.size: 12
+
+URxvt.font:	xft:BitstreamVeraSansMono Nerd Font Mono:style=Roman:size=11:antialias=true, \
+            	xft:DejaVuSansMono Nerd Font Mono:style=Book:size=11:antialias=true, \
+		xft:Font Awesome 5 Free:style=Regular:size=11:antialias=true
+URxvt.boldFont: xft:BitstreamVeraSansMono Nerd Font Mono:style=Bold:size=11:antialias=true, \
+		xft:DejaVuSansMono Nerd Font Mono:style=Bold:size=11:antialias=true
+
+URxvt.scrollBar: false
+URxvt.cursorBlink: true
+
+! Set depth to make transparency work.
+URxvt*depth: 32
+
+URxvt.iso14755: false
+URxvt.iso14755_2: false
+URxvt.internalBorder: 0
+URxvt.externalBorder: 0
+
+! X colors.
+*foreground:        BASE05
+*.foreground:       BASE05
+
+*background:        BASE00
+*.background:       BASE00
+
+URxvt*cursorColor:  BASE05
+URxvt*borderColor:  [100]BASE00
+
+! Transparency
+urxvt*transparent: true
+urxvt*shading: SHADING
+
+! Colors 0-15.
+*.color0:  BASE00
+*color0:   BASE00
+URxvt*color0:   BASE00
+
+*.color1:  BASE08
+*color1:   BASE08
+URxvt*color1:   BASE08
+
+*.color2:  BASE0B
+*color2:   BASE0B
+URxvt*color2:   BASE0B
+
+*.color3:  BASE0A
+*color3:   BASE0A
+URxvt*color3:   BASE0A
+
+*.color4:  BASE0D
+*color4:   BASE0D
+URxvt*color4:   BASE0D
+
+*.color5:  BASE0E
+*color5:   BASE0E
+URxvt*color5:   BASE0E
+
+*.color6:  BASE0C
+*color6:   BASE0C
+URxvt*color6:   BASE0C
+
+*.color7:  BASE05
+*color7:   BASE05
+URxvt*color7:   BASE05
+
+*.color8:  BASE03
+*color8:   BASE03
+URxvt*color8:   BASE03
+
+*.color9:  BASE08
+*color9:   BASE08
+URxvt*color9:   BASE08
+
+*.color10: BASE0B
+*color10:  BASE0B
+URxvt*color10:   BASE0B
+
+*.color11: BASE0A
+*color11:  BASE0A
+URxvt*color11:   BASE0A
+
+*.color12: BASE0D
+*color12:  BASE0D
+URxvt*color12:   BASE0D
+
+*.color13: BASE0E
+*color13:  BASE0E
+URxvt*color13:   BASE0E
+
+*.color14: BASE0C
+*color14:  BASE0C
+URxvt*color14:   BASE0C
+
+*.color15: BASE07
+*color15:  BASE07
+URxvt*color15:   BASE07
+
+! Colors beyond 15
+*.color16: BASE09
+*color16:  BASE09
+URxvt*color16:   BASE09
+
+*.color17: BASE0F
+*color17:  BASE0F
+URxvt*color17:   BASE0F
+
+*.color18: BASE01
+*color18:  BASE01
+URxvt*color18:   BASE01
+
+*.color19: BASE02
+*color19:  BASE02
+URxvt*color19:   BASE02
+
+*.color20: BASE04
+*color20:  BASE04
+URxvt*color20:   BASE04
+
+*.color21: BASE06
+*color21:  BASE06
+URxvt*color21:   BASE06
+
+! Rofi
+! State:           'bg',    'fg', 'bgalt', 'hlbg', 'hlfg'
+rofi.color-normal: BASE00, BASE07, BASE00, BASE07, BASE00
+rofi.color-urgent: BASE00, BASE08, BASE00, BASE08, BASE00
+rofi.color-active: BASE00, BASE0D, BASE00, BASE0D, BASE00
+!                  'bg',    'border'
+rofi.color-window: BASE00, BASE07
+
+Xft.dpi: 157

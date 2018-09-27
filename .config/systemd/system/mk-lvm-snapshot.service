@@ -1,0 +1,14 @@
+[Unit]
+Description=make LVM snapshots
+Requires=local-fs-pre.target
+DefaultDependencies=no
+Conflicts=shutdown.target
+After=local-fs-pre.target
+Before=local-fs.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /etc/systemd/system/mk-snapshot

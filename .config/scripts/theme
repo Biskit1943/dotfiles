@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+import os
+import argparse
+
+parser = argparse.ArgumentParser(description='Changes the User Theme', 
+        usage='%(prog)s [option]')
+parser.add_argument('list', help='List all avaiable Themes')
+
+args = parser.parse_args()
+
+# TODO:
+# - list aviable Themes
+# - copy content of Theme Folder to default
+# - source base
+# - xrdb $HOME/.Xresources
+# - restart i3 (i3-msg restart)

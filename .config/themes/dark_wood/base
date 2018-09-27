@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Solarized dark from https://github.com/aramisgithub/base16-solarized-scheme
+export BASE00="#002b36"  # Default Background
+export BASE01="#073642"  # Lighter Background (Used for Status Bars)
+export BASE02="#586e75"  # Selection Background
+export BASE03="#657b83"  # Comments, Invisibles, Line Highlighting
+export BASE04="#839496"  # Dark Foreground
+export BASE05="#93a1a1"  # Default Foregound, Caret, Delimiters, Operators
+export BASE06="#eee8d5"  # Light Foreground (Not often used)
+export BASE07="#fdf6e3"  # Light Background (Not often used)
+export BASE08="#dc322f"  # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+export BASE09="#cb4b16"  # Integers, Boolean, Constants, XML Attributes, Markup Link Url
+export BASE0A="#b58900"  # Classes, Markup Bold, Search Text Background, i3-Alert
+export BASE0B="#859900"  # Strings, Inherited Class, Markup Code, Diff Inserted
+export BASE0C="#2aa198"  # Support, Regular Expressions, Escape Characters, Markup Quotes
+export BASE0D="#268bd2"  # Functions, Methods, Attribute IDs, Headings
+export BASE0E="#6c71c4"  # Keywords, Storage, Selector, Markup Italic, Diff Changed
+export BASE0F="#d33682"  # Deprecated, Opening/Closing Embedded Language Tags e.g.<?php?>
+
+# Powerlevel9k Colors
+export PLBASE00="024"    # Default Background
+export PLBASE01="178"    # Default Foreground
+export PLBASE02="032"    # Alternate Background
+export PLBASE03="178"    # Alternate Foreground
+export PLBASE04="076"    # VI INSERT Foreground Color
+export PLBASE05="153"    # VI NORMAL Foreground Color
+
+# Background Image
+export BKGIMG="$HOME/Pictures/dark_wood.jpg"

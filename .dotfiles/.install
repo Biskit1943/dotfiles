@@ -1,0 +1,115 @@
+#!/bin/bash
+# Some checks
+if [[ $EUID -eq 0 ]]; then
+	echo "This Script must run as User not root!"
+	exit -1
+fi
+
+while true; do
+    read -p "Are you on a Laptop? [Y/n] " yn
+    case $yn in
+        [Yy]* ) LAPTOP="\
+        xf86-input-synaptics \
+        acpid"; break;;
+        [Nn]* ) LAPTOP=""; exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+###############################################################################
+#                                    Pacman
+###############################################################################
+# Sound
+SOUND="\
+alsa-utils \
+playerctl \
+pulseaudio \
+pavucontrol"
+
+# Wal
+WAL="\
+imagemagick \
+feh"
+
+# Basics
+BASIC="\
+vim \
+openssh \
+zsh \
+rxvt-unicode \
+numlockx \
+firefox"
+
+# X
+X="\
+xorg-server \
+xorg-xinit \
+xorg-apps"
+
+# i3-gaps
+I3="i3-gaps"
+
+# i3-extensions
+I3EXTENSIONS="rofi"
+
+# Dependencies
+DEPENDENCIES="pygmentize"
+
+# Installation
+sudo pacman -S --needed $BASIC $SOUND $WAL $DEPENDENCIES $X \
+	$I3EXTENSIONS
+
+###############################################################################
+#                                  AUR-Helper
+###############################################################################
+# Installation of aurman
+if [ ! $(which aurman) ]; then
+	OLD_DIR=$(pwd)
+	AURMAN="$HOME/.tmp"
+	git clone https://aur.archlinux.org/aurman.git $AURMAN
+	cd $AURMAN
+	makepkg -si --noconfirm
+	cd $OLD_DIR
+	rm -rf $AURMAN
+fi
+
+# Fonts
+FONT="nerd-fonts-complete "
+
+aurman -S --needed $FONT
+
+###############################################################################
+#                                   Dotfiles
+###############################################################################
+DOTFILES="$HOME/.dotfiles"
+# Create Folder if it does not exist
+if [ ! -d "$HOME/.dotfiles" ]; then
+	mkdir $DOTFILES
+fi
+
+git clone clone --bare https://git.aviatocodes.com/Biskit1943/dotfiles.git $DOTFILES
+alias dotfiles='/usr/bin/git --git-dir=$DOTFILES --work-tree=$HOME'
+dotfiles checkout -f
+dotfiles config --local status.showUntrackedFiles no
+
+###############################################################################
+#                                 Configuration
+###############################################################################
+if [ "$BASH" == $(which bash) ]; then
+	chsh -s $(which zsh)
+fi
+source $HOME/.zshrc
+xrdb $HOME/.Xresources
+
+# Enable dhcpcd
+sudo systemctl enable dhcpcd
+
+# On a Laptop(Or any other Machine which has acpid installed) enable acpid
+if [ $(which acpid) ]; then
+    sudo systemctl enable acpid.service
+    sudo systemctl enable acpid.service
+fi
+
+# Disable System beep
+sudo rmmod pcspkr
+echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf > /dev/null

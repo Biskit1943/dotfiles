@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# This Script will mount and unmount an encrypted USB to your /mnt/usb Directory
+case $1 in
+"mount")
+	if [ ! -d /mnt/usb ]; then
+		read -p "sudo mkdir /mnt/usb [Y/n] " -n 1 -r
+		echo
+		if [[ $REPLY =~ ^[Yy]$ ]]; then
+			sudo mkdir /mnt/usb || exit -1
+		else
+			exit 1
+		fi
+	fi
+
+	read -p "sudo cryptsetup luksOpen $2 lvm_usb [Y/n] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+		sudo cryptsetup luksOpen $2 lvm_usb || exit -2
+	else
+		exit 1
+	fi
+
+	read -p "sudo mount /dev/mapper/lvm_usb /mnt/usb [Y/n] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+	    sudo mount /dev/mapper/lvm_usb /mnt/usb || exit -3
+	else
+		exit 1
+	fi
+;;
+"umount")
+	read -p "sudo umount /mnt/usb [Y/n] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+	    sudo umount /mnt/usb || exit -1
+	else
+		exit 1
+	fi
+
+	read -p "sudo cryptsetup luksClose lvm_usb [Y/n] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+	    sudo cryptsetup luksClose lvm_usb || exit -2
+	else
+		exit 1
+	fi
+;;
+*)
+	echo "Usage [mount/umount] <device>"
+	exit -1
+;;
+esac

@@ -1,0 +1,292 @@
+# =============================================================================
+#                                 General Config
+# =============================================================================
+# Set Mod to Host
+set $mod Mod4
+
+# Font for i3 and the Bar if not overriden in the bar{} section
+font pango:BitstreamVeraSansMono Nerd Font Mono:style=Book 11
+
+# This will disable all gaps (outer and inner) on the workspace whenever only
+# one container is on the current workspace.
+smart_gaps on
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Gaps between the Windows
+gaps inner 20
+gaps outer -2
+
+# Disable Window Borders and Titles
+for_window [class="^.*"] border pixel 0
+
+# Import Theme
+set_from_resource $BKGIMG echo "$BKGIMG"
+
+# =============================================================================
+#                                  i3-gaps Config
+# =============================================================================
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying 
+# outer/inner gaps. Press one of + / - (in-/decrement for current workspace) 
+# or 0 (remove gaps for current workspace). If you also press Shift with these
+# keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+# Toggle Gaps
+set $toggle_gaps Toggle gaps: (1)OFF (2)LOW (3)NORMAL (4)HUGE  
+bindsym $mod+n mode "$toggle_gaps"
+
+# =============================================================================
+#                                   Keybindings
+# =============================================================================
+# Switch to Workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# start a terminal
+bindsym $mod+Return exec urxvt
+
+# start rofi (a program launcher)
+# -eh: Row-Heigh; -bw Border-Width(around rofi);
+bindsym $mod+space exec --no-startup-id "rofi -combi-modi drun,window -modi combi,run,ssh -show combi -lines 6 -eh 2 -width 30 -bw 0 -show-icons -font BitstreamVeraSansMono\ Nerd\ Font\ Mono:style=Roman\ 16"
+
+# split in horizontal orientation
+bindsym $mod+Right split h
+bindsym $mod+Left split h
+
+# split in vertical orientation
+bindsym $mod+Up split v
+bindsym $mod+Down split v
+
+# split Windows
+bindsym $mod+t split toggle
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Resize Window
+bindsym $mod+r mode "resize"
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+i focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# Open Ranger(File explorer)
+bindsym $mod+c exec ranger
+
+# Hide and Show polybar with xdo
+bindsym $mod+m exec --no-startup-id ~/.config/scripts/polybar_hide_show.sh
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 200 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 200 # decrease screen brightness
+
+# Pulse Audio controls for Mediakeys
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd list-sinks | grep \* | awk '{print $3}') +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks | grep \* | awk '{print $3}') -5%
+bindsym XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks | grep \* | awk '{print $3}') toggle # mute current device
+
+# Media player controls for Mediakeys
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Lock, Logout, Suspend, Hibernate, Reboot, Poweroff
+set $mode_power [l]ock [e]logout [s]uspend [r]eboot [p]oweroff (shutdown)
+bindsym $mod+Shift+p mode "$mode_power"
+
+# Cycle through Workspaces
+bindsym Mod1+Right workspace next
+bindsym Mod1+Left workspace prev
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# =============================================================================
+#                                  Workspaces
+# =============================================================================
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10"
+
+# Windows to open on specific Workspace
+assign [class="Chromium"] $ws2
+assign [class="discord"] $ws3
+assign [class="Thunderbird"] $ws4
+assign [class="QtPass"] $ws10
+assign [class="qtpass"] $ws10
+# Toolbox
+assign [class="jetbrains-toolbox"] $ws5
+assign [class="Toolbox"] $ws5
+# Also make toolbox not floating
+for_window [class="jetbrains-toolbox"] floating disable
+for_window [class="Toolbox"] floating disable
+# IDEs
+assign [class="jetbrains-pycharm-ce"] $ws5
+assign [class="sun-awt-X11-XFramePeer"] $ws5
+assign [class="jetbrains-idea-ce"] $ws5
+assign [class="jetbrains-goland"] $ws5
+assign [class="jetbrains-clion"] $ws5
+# VS-Code
+assign [class="code - oss"] $ws5
+assign [class="Code - OSS"] $ws5
+
+# This is a workaround for Spotify, since it is not fixed for about 3 Years,
+# I don't expect that this Line will be removed soon
+for_window [class="Spotify"] move to workspace $ws6
+
+# =============================================================================
+#                                   Autostart
+# =============================================================================
+exec_always --no-startup-id $HOME/.config/scripts/polybar_launcher.sh
+exec_always qtpass
+exec spotify
+exec discord
+exec thunderbird
+# Set Background from ~/.config/themes/default/base
+exec --no-startup-id feh --bg-fill $BKGIMG
+exec --no-startup-id compton -b
+
+# =============================================================================
+#                                   Functions
+# =============================================================================
+# Gaps Functions
+mode "$mode_gaps" {
+	bindsym o      mode "$mode_gaps_outer"
+		bindsym i      mode "$mode_gaps_inner"
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+	bindsym plus  gaps inner current plus 5
+		bindsym minus gaps inner current minus 5
+		bindsym 0     gaps inner current set 0
+
+		bindsym Shift+plus  gaps inner all plus 5
+		bindsym Shift+minus gaps inner all minus 5
+		bindsym Shift+0     gaps inner all set 0
+
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+	bindsym plus  gaps outer current plus 5
+		bindsym minus gaps outer current minus 5
+		bindsym 0     gaps outer current set 0
+
+		bindsym Shift+plus  gaps outer all plus 5
+		bindsym Shift+minus gaps outer all minus 5
+		bindsym Shift+0     gaps outer all set 0
+
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+
+}
+
+mode "$toggle_gaps" {
+    bindsym 1 mode "default", gaps inner all set 0, gaps outer all set 0
+    bindsym 2 mode "default", gaps inner all set 10, gaps outer all set -4
+    bindsym 3 mode "default", gaps inner all set 15, gaps outer all set -2
+    bindsym 4 mode "default", gaps inner all set 30, gaps outer all set 4
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# i3 Functions
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+mode "$mode_power" {
+    bindsym l mode "default", exec --no-startup-id $HOME/.config/scripts/i3exit lock
+    bindsym e mode "default", exec --no-startup-id $HOME/.config/scripts/i3exit logout
+    bindsym s mode "default", exec --no-startup-id $HOME/.config/scripts/i3exit suspend
+    bindsym r mode "default", exec --no-startup-id $HOME/.config/scripts/i3exit reboot
+    bindsym p mode "default", exec --no-startup-id $HOME/.config/scripts/i3exit shutdown
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# =============================================================================
+#                                     ON/OFF
+# =============================================================================
+# On a laptop uncomment this to prevent focus following the Mouse
+# focus_follows_mouse no

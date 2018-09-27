@@ -1,0 +1,18 @@
+! This File is for .Xresources
+
+#define BASE00 #002b36
+#define BASE01 #073642
+#define BASE02 #586e75
+#define BASE03 #657b83
+#define BASE04 #839496
+#define BASE05 #93a1a1
+#define BASE06 #eee8d5
+#define BASE07 #fdf6e3
+#define BASE08 #dc322f
+#define BASE09 #cb4b16
+#define BASE0A #b58900
+#define BASE0B #859900
+#define BASE0C #2aa198
+#define BASE0D #268bd2
+#define BASE0E #6c71c4
+#define SHADING 100

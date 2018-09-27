@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Restart i3
+i3-msg restart

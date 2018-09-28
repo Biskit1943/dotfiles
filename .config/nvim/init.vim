@@ -71,5 +71,6 @@ endfunc
 nnoremap <leader>r :call NumberToggle()<cr>
 
 " Lightline
+set background=dark
 set noshowmode
-let g:lightline = {'colorscheme': 'solarized dark'}
+let g:lightline = {'colorscheme': 'solarized'}

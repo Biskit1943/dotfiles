@@ -15,7 +15,7 @@ smart_gaps on
 floating_modifier $mod
 
 # Gaps between the Windows
-gaps inner 20
+gaps inner 15
 gaps outer -2
 
 # Disable Window Borders and Titles
@@ -66,7 +66,7 @@ bindsym $mod+Return exec urxvt
 
 # start rofi (a program launcher)
 # -eh: Row-Heigh; -bw Border-Width(around rofi);
-bindsym $mod+space exec --no-startup-id "rofi -combi-modi drun,window -modi combi,run,ssh -show combi -lines 6 -eh 2 -width 30 -bw 0 -show-icons -font BitstreamVeraSansMono\ Nerd\ Font\ Mono:style=Roman\ 16"
+bindsym $mod+space exec --no-startup-id "rofi -combi-modi drun,window -modi combi,run,ssh -show combi -lines 6 -eh 2 -width 30 -bw 0 -show-icons -font BitstreamVeraSansMono\ Nerd\ Font\ Mono:style=Roman\ 13"
 
 # split in horizontal orientation
 bindsym $mod+Right split h
@@ -203,6 +203,10 @@ assign [class="Code - OSS"] $ws5
 # This is a workaround for Spotify, since it is not fixed for about 3 Years,
 # I don't expect that this Line will be removed soon
 for_window [class="Spotify"] move to workspace $ws6
+
+# Disable floating for OwnCloud
+for_window [class="owncloud"] floating disable
+for_window [class="ownCloud"] floating disable
 
 # =============================================================================
 #                                   Autostart

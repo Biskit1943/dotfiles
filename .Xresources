@@ -130,4 +130,4 @@ rofi.color-active: BASE00, BASE0D, BASE00, BASE0D, BASE00
 !                  'bg',    'border'
 rofi.color-window: BASE00, BASE07
 
-Xft.dpi: 157
+Xft.dpi: 92

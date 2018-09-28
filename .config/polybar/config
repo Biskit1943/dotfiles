@@ -25,7 +25,7 @@ high = ${xrdb:color4:#FFFFFF}
 [bar/top]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 50
+height = 34
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -47,8 +47,8 @@ border-bottom-color = ${colors.foreground-alt}
 padding-left = 2
 padding-right = 2
 
-font-0 = BitstreamVeraSansMono\ Nerd\ Font\ Mono:style=Book:size=16
-font-1 = DejaVuSansMono\ Nerd\ Font\ Mono:style=Book:size=16
+font-0 = BitstreamVeraSansMono\ Nerd\ Font\ Mono:style=Book:size=13
+font-1 = DejaVuSansMono\ Nerd\ Font\ Mono:style=Book:size=13
 
 ;The space left by each module to separate from each other, from left to right.
 module-margin-left = 2
@@ -62,7 +62,7 @@ modules-right = battery backlight pulseaudio date powermenu
 monitor = ${env:MONITOR:}
 bottom = true
 width = 100%
-height = 50
+height = 27
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -87,8 +87,8 @@ border-top-size = 1
 border-top-color = ${colors.foreground-alt}
 
 ; The ;5 at the End is the Vertical offset
-font-0 = BitstreamVeraSansMono\ Nerd\ Font\ Mono:style=Book:size=16;5
-font-1 = DejaVuSansMono\ Nerd\ Font\ Mono:style=Book:size=16;5
+font-0 = BitstreamVeraSansMono\ Nerd\ Font\ Mono:style=Book:size=13;5
+font-1 = DejaVuSansMono\ Nerd\ Font\ Mono:style=Book:size=13;5
 
 modules-left = i3
 modules-right = wireless-network wired-network filesystem cpu temperature memory

@@ -106,36 +106,36 @@ zplug load
 
 # history
 if zplug check "zsh-users/zsh-history-substring-search"; then
-	zmodload zsh/terminfo
-	bindkey "$terminfo[kcuu1]" history-substring-search-up
-	bindkey "$terminfo[kcud1]" history-substring-search-down
-	bindkey "^[[1;5A" history-substring-search-up
-	bindkey "^[[1;5B" history-substring-search-down
+    zmodload zsh/terminfo
+    bindkey "$terminfo[kcuu1]" history-substring-search-up
+    bindkey "$terminfo[kcud1]" history-substring-search-down
+    bindkey "^[[1;5A" history-substring-search-up
+    bindkey "^[[1;5B" history-substring-search-down
 fi
 
 # highlighting
 if zplug check "zsh-users/zsh-syntax-highlighting"; then
-	#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
-	ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-	ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
+    #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+    ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 
-	typeset -A ZSH_HIGHLIGHT_STYLES
-	ZSH_HIGHLIGHT_STYLES[cursor]='bg=yellow'
-	ZSH_HIGHLIGHT_STYLES[globbing]='none'
-	ZSH_HIGHLIGHT_STYLES[path]='fg=white'
-	ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=grey'
-	ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan'
-	ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
-	ZSH_HIGHLIGHT_STYLES[function]='fg=cyan'
-	ZSH_HIGHLIGHT_STYLES[command]='fg=green'
-	ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'
-	ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green'
-	ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=yellow'
-	ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta'
-	ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=cyan,bold'
-	ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'
-	ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'
-	ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
+    typeset -A ZSH_HIGHLIGHT_STYLES
+    ZSH_HIGHLIGHT_STYLES[cursor]='bg=yellow'
+    ZSH_HIGHLIGHT_STYLES[globbing]='none'
+    ZSH_HIGHLIGHT_STYLES[path]='fg=white'
+    ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=grey'
+    ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[function]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[command]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=yellow'
+    ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta'
+    ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=cyan,bold'
+    ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'
+    ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'
+    ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
 fi
 
 # Alias Overrides

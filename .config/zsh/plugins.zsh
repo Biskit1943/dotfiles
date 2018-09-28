@@ -90,3 +90,5 @@ zplug "arzzen/calc.plugin.zsh"
 
 # Load theme
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

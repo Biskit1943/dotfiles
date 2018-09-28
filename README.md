@@ -7,7 +7,8 @@ For my basic programs use the `.dotfiles/.install` script
 - Second, download the `Nerd-Font` of your choice here: [Releases](https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.0.0)
   or install it from the [AUR](https://aur.archlinux.org/packages/nerd-fonts-complete/) from Arch
 - Third, copy that Files into your Font Folder (On Arch `/usr/share/fonts/`) and enable them in your Terminal
-- Fourth, `mkdir $HOME/.dotfiles` then `git clone --bare https://github.com/Biskit1943/dotfiles.git`
+- Fourth, `mkdir $HOME/.dotfiles` then `cd `$HOME/.dotfiles` and finally 
+  `git clone --bare https://github.com/Biskit1943/dotfiles.git .`
 - Fith, run this command `alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'`
 - Sixth, rm/backup all Files that are provided by this Repo
 - Seventh, run this `dotfiles checkout` and afterwards this `dotfiles config --local status.showUntrackedFiles no`

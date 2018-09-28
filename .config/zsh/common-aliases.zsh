@@ -43,11 +43,11 @@ zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f
 
 # Set Editor to nvim if available
 if which nvim &>/dev/null; then
-	alias vim='() { $(whence -p nvim) $@ }'
-	export EDITOR=nvim
+    alias vim='() { $(whence -p nvim) $@ }'
+    export EDITOR=nvim
 else
-	alias vim='() { $(whence -p vim) $@ }'
-	export EDITOR=vim
+    alias vim='() { $(whence -p vim) $@ }'
+    export EDITOR=vim
 fi
 
 # Enable autocolor

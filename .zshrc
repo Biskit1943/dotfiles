@@ -140,3 +140,9 @@ fi
 
 # Alias Overrides
 source $HOME/.config/zsh/aliase.zsh
+
+# Activate fzf
+if which fzf &>/dev/null; then
+    source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
+fi

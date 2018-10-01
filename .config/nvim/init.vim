@@ -22,6 +22,8 @@ set tabstop=4           " Render TABs using this many spaces.
 set shiftwidth=4        " Indentation amount for < and > commands.
 set nostartofline       " Do not jump to first character with page commands.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
+"Visual character indicator
+set colorcolumn=80
 
 " More natural splits
 set splitbelow          " Horizontal split below current.

@@ -9,8 +9,10 @@ call plug#end()
 
 
 let mapleader="\<SPACE>"
-nnoremap ; :    " Use ; for commands.
-nnoremap Q @q   " Use Q to execute default register.
+" Use ; for commands.
+nnoremap ; :
+" Use Q to execute default register.
+nnoremap Q @q
 
 set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.

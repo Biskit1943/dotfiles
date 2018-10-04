@@ -4,6 +4,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/gnupg.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
+Plug '~/.local/share/nvim/plugged/redact_pass'
 " Initialize plugin system
 call plug#end()
 

@@ -4,12 +4,20 @@ Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/gnupg.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
+Plug 'lervag/vimtex'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'vim-syntastic/syntastic'
 Plug '~/.local/share/nvim/plugged/redact_pass'
 " Initialize plugin system
 call plug#end()
 
 
-let mapleader="\<SPACE>"
+" Unbind space from everything except the mapleader
+noremap <Space> <Nop>
+let mapleader="\<Space>"
+let maplocalleader="\<Space>"
 " Use ; for commands.
 nnoremap ; :
 " Use Q to execute default register.
@@ -78,3 +86,15 @@ nnoremap <leader>r :call NumberToggle()<cr>
 set background=dark
 set noshowmode
 let g:lightline = {'colorscheme': 'solarized'}
+
+" UrilSnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" vimtex
+let g:vimtex_compiler_progname = 'nvr'

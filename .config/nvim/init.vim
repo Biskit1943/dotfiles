@@ -1,5 +1,9 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/gnupg.vim'
 Plug 'junegunn/fzf.vim'
@@ -78,3 +82,17 @@ nnoremap <leader>r :call NumberToggle()<cr>
 set background=dark
 set noshowmode
 let g:lightline = {'colorscheme': 'solarized'}
+
+" Language Server
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+"nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>

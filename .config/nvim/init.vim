@@ -8,12 +8,20 @@ Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/gnupg.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
+Plug 'lervag/vimtex'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'vim-syntastic/syntastic'
 Plug '~/.local/share/nvim/plugged/redact_pass'
 " Initialize plugin system
 call plug#end()
 
 
-let mapleader="\<SPACE>"
+" Unbind space from everything except the mapleader
+noremap <Space> <Nop>
+let mapleader="\<Space>"
+let maplocalleader="\<Space>"
 " Use ; for commands.
 nnoremap ; :
 " Use Q to execute default register.

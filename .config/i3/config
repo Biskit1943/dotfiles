@@ -62,7 +62,7 @@ bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # start rofi (a program launcher)
 # -eh: Row-Heigh; -bw Border-Width(around rofi);

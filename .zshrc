@@ -36,3 +36,5 @@ source $HOME/.config/zsh/zplug.zsh
 source $HOME/.config/zsh/custom_aliase.zsh
 source $HOME/.config/zsh/path.zsh
 source $HOME/.config/zsh/ssh.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh

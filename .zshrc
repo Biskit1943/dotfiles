@@ -8,8 +8,8 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # Specify theme name here without file-ending
-ZSH_THEME=e621
-ZSH_THEME_PROMPT_ON_NEW_LINE=true
+ZSH_THEME=steeef
+#ZSH_THEME_PROMPT_ON_NEW_LINE=true
 
 # History settings
 HISTFILE=$HOME/.histfile

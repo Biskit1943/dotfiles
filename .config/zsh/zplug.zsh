@@ -39,6 +39,9 @@ zplug "plugins/copydir", from:oh-my-zsh
 # Copy the content of a File to the Clipboard
 zplug "plugins/copyfile", from:oh-my-zsh
 
+# Powerlevel 10k
+# zplug romkatv/powerlevel10k, use:powerlevel10k.zsh-theme
+
 # =============================================================================
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then

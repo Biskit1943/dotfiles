@@ -292,11 +292,11 @@ bar-used-empty-foreground = #444444
 [module/wireless-network]
 type = internal/network
 interface = wlp5s0
-interval = 3.0
+interval = 0.5
 ping-interval = 10
 
 format-connected = <label-connected> <ramp-signal>
-label-connected =  %essid% %{T3}%local_ip%%{T-}
+label-connected =  %essid% %{T3}%local_ip%%{T-} ▲%upspeed% ▼%downspeed%
 label-disconnected =  no connection
 label-disconnected-foreground = #66
 

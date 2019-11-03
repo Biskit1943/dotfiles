@@ -61,4 +61,4 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias compose='docker-compose'
 
 alias portainer='/opt/portainer/portainer --data /opt/portainer/portainer-data -p :10001 --template-file /opt/portainer/templates.json'
-
+alias checkip='wget -q -O - https://checkip.perfect-privacy.com/csv'

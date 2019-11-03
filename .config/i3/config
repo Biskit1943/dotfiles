@@ -212,7 +212,6 @@ for_window [class="ownCloud"] floating disable
 #                                   Autostart
 # =============================================================================
 exec_always --no-startup-id $HOME/.config/scripts/polybar_launcher.sh
-exec_always qtpass
 exec spotify
 exec discord
 exec thunderbird

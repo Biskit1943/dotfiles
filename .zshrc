@@ -13,7 +13,7 @@ ZSH_THEME=steeef
 
 # History settings
 HISTFILE=$HOME/.histfile
-HISTSIZE=100
+HISTSIZE=1000
 SAVEHIST=10000
 
 # ZSH setopt

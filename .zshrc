@@ -3,7 +3,7 @@ export LC_ALL="en_US.UTF-8"
 export TERM="xterm-256color"
 bindkey -v # Use Vim inside of the Terminal
 # Path to your oh-my-zsh installation.
-export ZSH="~/.zplug/repos/robbyrussell/oh-my-zsh"
+export ZSH="$HOME/.zplug/repos/robbyrussell/oh-my-zsh"
 export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
 
 # Watching other users

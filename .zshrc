@@ -3,7 +3,7 @@ export LC_ALL="en_US.UTF-8"
 export TERM="xterm-256color"
 bindkey -v # Use Vim inside of the Terminal
 # Path to your oh-my-zsh installation.
-export ZSH="/home/IGEL/konter/.zplug/repos/robbyrussell/oh-my-zsh"
+export ZSH="~/.zplug/repos/robbyrussell/oh-my-zsh"
 export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
 
 # Watching other users
@@ -127,98 +127,6 @@ vf() {
 }
 
 export FZF_TMUX=1
-
-
-# fshow - git commit browser
-fshow() {
-  git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-      --bind "ctrl-m:execute:
-                (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-                {}
-FZF-EOF"
-}
-
-# fcs - get git commit sha
-# example usage: git rebase -i `fcs`
-fcs() {
-  local commits commit
-  commits=$(git log --color=always --pretty=oneline --abbrev-commit --reverse) &&
-  commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
-  echo -n $(echo "$commit" | sed "s/ .*//")
-}
-
-
-# fshow_preview - git commit browser with previews
-fshow_preview() {
-    glNoGraph |
-        fzf --no-sort --reverse --tiebreak=index --no-multi \
-            --ansi --preview $_viewGitLogLine \
-                --header "enter to view, alt-y to copy hash" \
-                --bind "enter:execute:$_viewGitLogLine   | less -R" \
-                --bind "alt-y:execute:$_gitLogLineToHash | xclip"
-}
-
-
-
-
-# fcoc - checkout git commit
-fcoc() {
-  local commits commit
-  commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
-  commit=$(echo "$commits" | fzf --tac +s +m -e) &&
-  git checkout $(echo "$commit" | sed "s/ .*//")
-}
-
-# fcoc_preview - checkout git commit with previews
-fcoc_preview() {
-  local commit
-  commit=$( glNoGraph |
-    fzf --no-sort --reverse --tiebreak=index --no-multi \
-        --ansi --preview $_viewGitLogLine ) &&
-  git checkout $(echo "$commit" | sed "s/ .*//")
-}
-
-
-_fzf_complete_git() {
-    ARGS="$@"
-    local branches
-    branches=$(git branch -vv --all)
-    if [[ $ARGS == 'git co'* ]]; then
-        _fzf_complete "--reverse --multi" "$@" < <(
-            echo $branches
-        )
-    else
-        eval "zle ${fzf_default_completion:-expand-or-complete}"
-    fi
-}
-
-_fzf_complete_git_post() {
-    awk '{print $1}'
-}
-
-# fbr - checkout git branch (including remote branches)
-fbr() {
-  local branches branch
-  branches=$(git branch --all | grep -v HEAD) &&
-  branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
-
-# fuzzy rg
-vg() {
-  local file
-
-  file="$(rg --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1 " +" $2}')"
-
-  if [[ -n $file ]]
-  then
-     vim $file
-  fi
-}
 
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/share/code/bin

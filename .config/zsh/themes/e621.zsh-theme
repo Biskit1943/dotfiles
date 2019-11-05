@@ -1,4 +1,5 @@
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export ZSH_THEME_PROMPT_ON_NEW_LINE=true
 prompt_distro_fg=${DISTRO_COLOUR:-green}
 prompt_host_fg=${HOST_COLOUR:-cyan}
 prompt_root_red=196

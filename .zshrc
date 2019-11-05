@@ -128,6 +128,18 @@ vf() {
 
 export FZF_TMUX=1
 
+# fuzzy rg
+vg() {
+  local file
+
+  file="$(rg --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1 " +" $2}')"
+
+  if [[ -n $file ]]
+  then
+     vim $file
+  fi
+}
+
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/share/code/bin
 export PATH=$PATH:/usr/share/code-insiders/bin
